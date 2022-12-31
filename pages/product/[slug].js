@@ -21,14 +21,14 @@ const ProductDetails = ({product, products}) => {
       <div className='product-detail-container'>
         <div>
             <img 
-              src={urlFor(image[index]).toString()}
+              src={urlFor(image[index])}
               className='product-detail-image'
             />
           <div className='small-images-container'>
             {image?.map((item, i) => (
               <img 
                 key={i}
-                src={urlFor(item).toString()}
+                src={urlFor(item)}
                 className={i === index ? 'small-image selected-image' : 'small-image'}
                 onMouseEnter={() => setIndex(i)}
               />
