@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import { AiOutlineLeft, AiOutlineShopping } from "react-icons/ai";
 import { TiPlus, TiMinus, TiDeleteOutline } from "react-icons/ti";
@@ -9,7 +9,6 @@ import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 
 const Cart = () => {
-  const cartRef = useRef();
   const {
     setShowCart,
     totalQuantities,
@@ -38,7 +37,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="cart-wrapper">
       <div className="cart-container">
         <button
           type="button"

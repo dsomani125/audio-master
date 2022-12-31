@@ -4,7 +4,7 @@ import product from '../sanity-audio-master/schemas/product';
 
 const Context = createContext();
 
-export const StateContext = ({children}) => {
+export const StateContext = ({children}: any) => {
     const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState<any>([]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
