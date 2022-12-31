@@ -4,14 +4,14 @@ import product from '../sanity-audio-master/schemas/product';
 
 const Context = createContext();
 
-export const StateContext = ({children}: any) => {
+export const StateContext = ({children}) => {
     const [showCart, setShowCart] = useState(false);
-    const [cartItems, setCartItems] = useState<any>([]);
-    const [totalPrice, setTotalPrice] = useState<number>(0);
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
 
-    let selectedProduct: any;
+    let selectedProduct;
     let selectedIndex;
 
     const incQty = () => {
@@ -24,14 +24,14 @@ export const StateContext = ({children}: any) => {
         });
     };
 
-    const onAdd = (product: any, quantity: number) => {
-        const checkProductInCart = cartItems.find((item: any) => item._id === product._id);
+    const onAdd = (product, quantity) => {
+        const checkProductInCart = cartItems.find((item) => item._id === product._id);
 
         setTotalQuantities((prev) => prev+quantity);
         setTotalPrice((prev) => prev + product.price*quantity);
 
         if(checkProductInCart){
-            const updatedCartItems = cartItems.map((item: any) => {
+            const updatedCartItems = cartItems.map((item) => {
                 if(item._id === product._id) return {
                     ...item,
                     quantity: item.quantity + quantity
@@ -46,10 +46,10 @@ export const StateContext = ({children}: any) => {
         toast.success(`${qty} ${product.name} added to the cart.`);
     };
 
-    const toggleCartItemQuantity = (id: number, value: string) => {
-        selectedProduct = cartItems.find((item: any) => item._id === id);
-        selectedIndex = cartItems.findIndex((item: any) => item._id === id);
-        const newCartItems = cartItems.filter((item: any) => item._id !== id);
+    const toggleCartItemQuantity = (id, value) => {
+        selectedProduct = cartItems.find((item) => item._id === id);
+        selectedIndex = cartItems.findIndex((item) => item._id === id);
+        const newCartItems = cartItems.filter((item) => item._id !== id);
 
         if(value === 'inc'){
             setCartItems([...newCartItems, {...selectedProduct, quantity: selectedProduct.quantity + 1}]);
@@ -65,9 +65,9 @@ export const StateContext = ({children}: any) => {
         }
     };
 
-    const onRemove = (id: number) => {
-        selectedProduct = cartItems.find((item: any) => item._id === id);
-        const newCartItems = cartItems.filter((item: any) => item._id !== id);
+    const onRemove = (id) => {
+        selectedProduct = cartItems.find((item) => item._id === id);
+        const newCartItems = cartItems.filter((item) => item._id !== id);
         setTotalPrice((prev) => prev - selectedProduct.price*selectedProduct.quantity);
         setTotalQuantities((prev) => prev - selectedProduct.quantity);
         setCartItems(newCartItems);

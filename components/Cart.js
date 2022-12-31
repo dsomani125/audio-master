@@ -16,11 +16,11 @@ const Cart = () => {
     cartItems,
     toggleCartItemQuantity,
     onRemove
-  }: any = useStateContext();
+  } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
-    const response: any = await fetch('/api/stripe', {
+    const response = await fetch('/api/stripe', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -67,10 +67,10 @@ const Cart = () => {
 
         <div className="product-container">
           {cartItems.length &&
-            cartItems.map((item: any) => (
+            cartItems.map((item) => (
               <div key={item._id} className="product">
                 <img
-                  src={urlFor(item.image[0])}
+                  src={urlFor(item?.image[0]).toString()}
                   className="cart-product-image"
                 />
                 <div className="item-desc">

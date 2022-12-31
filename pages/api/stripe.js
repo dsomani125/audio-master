@@ -1,9 +1,7 @@
 import Stripe from "stripe";
-// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, '');
-
-export default async function handler(req: any, res: any) {
+export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       // Create Checkout Sessions from body params.
@@ -16,7 +14,7 @@ export default async function handler(req: any, res: any) {
           { shipping_rate: "shr_1MKsY9SJ9CxCmnTF9db1jey5" },
           { shipping_rate: "shr_1MKsZTSJ9CxCmnTFKfxPEpzL" },
         ],
-        line_items: req.body.map((item: any) => {
+        line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref;
           const newImage = img
             .replace(
@@ -47,7 +45,7 @@ export default async function handler(req: any, res: any) {
 
       const session = await stripe.checkout.sessions.create(params);
       res.status(200).json(session);
-    } catch (err: any) {
+    } catch (err) {
       res.status(err.statusCode || 500).json(err.message);
     }
   } else {

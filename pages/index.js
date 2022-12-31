@@ -1,14 +1,8 @@
 import React from 'react';
 import {client} from '../lib/client';
 import {Cart,Footer,FooterBanner, Layout, HeroBanner, Navbar, Product} from '../components';
-import { BannerDataType, ProductDataType } from '../types';
 
-interface PropsDataType {
-  products: ProductDataType;
-  bannerData: BannerDataType;
-}
-
-const Home = ({products, bannerData}: PropsDataType) => {
+const Home = ({products, bannerData}) => {
   return (
     <div>
       <HeroBanner heroBanner={bannerData[0]}/>

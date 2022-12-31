@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.js", "context/StateContext.js", "components/Cart.js", "components/Footer.js", "components/FooterBanner.js", "components/HeroBanner.js", "components/index.js", "components/Layout.js", "components/Navbar.js", "components/Product.js", "lib/client.js", "lib/getStripe.js", "lib/utils.js", "pages/api/hello.js", "pages/api/stripe.js", "pages/product/[slug].js", "pages/_app.js", "pages/success.js", "pages/_document.js", "sanity-audio-master/sanity.config.js", "sanity-audio-master/schemas/banner.js", "sanity-audio-master/schemas/index.js", "sanity-audio-master/schemas/product.js"],
   "exclude": ["node_modules"]
 }

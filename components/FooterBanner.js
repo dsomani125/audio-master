@@ -1,11 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
-import { BannerDataType } from '../types';
-
-interface FooterPropsType {
-  footerBanner: BannerDataType;
-};
 
 const FooterBanner = ({footerBanner: {
   discount,
@@ -18,7 +13,7 @@ const FooterBanner = ({footerBanner: {
   product,
   buttonText,
   image
-}}: FooterPropsType) => {
+}}) => {
   return (
     <div className='footer-banner-container'>
       <div className='banner-desc'>
@@ -37,7 +32,7 @@ const FooterBanner = ({footerBanner: {
           </Link>
         </div>
         <img
-          src={urlFor(image)}
+          src={urlFor(image).toString()}
           className="footer-banner-image"
         />
       </div>
