@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import styled from "styled-components";
 import { BannerDataType } from "../types";
 import { urlFor } from "../lib/client";
 

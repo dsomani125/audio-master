@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import { urlFor } from '../lib/client'
 import { ProductDataType } from '../types'
-import styled from 'styled-components';
 import { TbCurrencyRupee } from 'react-icons/tb';
 
 interface ProductProps {
