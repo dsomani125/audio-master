@@ -14,7 +14,7 @@ const Product = ({product : {
       <Link href={`/product/${slug.current}`}>
         <div className='product-card'>
           <img 
-            src={urlFor(image[0])}
+            src={urlFor(image && image[0])}
             width={250}
             height={250}
             alt='headphone'

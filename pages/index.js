@@ -3,20 +3,28 @@ import {client} from '../lib/client';
 import {Cart,Footer,FooterBanner, Layout, HeroBanner, Navbar, Product} from '../components';
 
 const Home = ({products, bannerData}) => {
+
+  const productCheck = [];
+
   return (
     <div>
       <HeroBanner heroBanner={bannerData[0]}/>
       <div className='products-heading'>
         <h2>Best Selling Products</h2>
-        <p>Speakers of many variations</p>
       </div>
 
       <div className='products-container'>
         {products?.map(
-          (product) => <Product key={product._id} product={product}/>
+          (product) => {
+            const productSlug = product.slug.current.split('-')[0];
+            if(!productCheck.includes(productSlug)){
+               productCheck.push(productSlug);
+              return <Product key={product._id} product={product}/>
+            }
+            return;
+          }
         )}
       </div>
-      
       <FooterBanner footerBanner={bannerData[0]}/>
     </div>
   )

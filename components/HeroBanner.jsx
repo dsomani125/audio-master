@@ -11,7 +11,7 @@ const HeroBanner = ({ heroBanner }) => {
         <img
           src={urlFor(heroBanner.image)}
           alt="headphones"
-          height={400}
+          // height={400}
           className="hero-banner-image"
         />
 

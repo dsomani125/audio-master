@@ -36,6 +36,14 @@ const Cart = () => {
     stripe.redirectToCheckout({ sessionId: data.id });
   }
 
+  const closeCart = (event) => {
+    if(event.clientX < (window.innerWidth - 600)) setShowCart(false); 
+  }
+
+  document.addEventListener("click", closeCart);
+
+  console.log("inside cart", cartItems);
+
   return (
     <div className="cart-wrapper">
       <div className="cart-container">
@@ -49,7 +57,7 @@ const Cart = () => {
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
-        {!cartItems.length && (
+        {cartItems.length < 1 && (
           <div className="empty-cart">
             <AiOutlineShopping size={150} />
             <h3>Your shopping cart is empty</h3>
@@ -66,8 +74,9 @@ const Cart = () => {
         )}
 
         <div className="product-container">
-          {cartItems.length &&
+          {cartItems.length >= 1 &&
             cartItems.map((item) => (
+              // item && (
               <div key={item._id} className="product">
                 <img
                   src={urlFor(item?.image[0])}
@@ -95,16 +104,17 @@ const Cart = () => {
                         <TiPlus />
                       </span>
                     </p>
-                    <button type="button" className="remove-item" onClick={() => onRemove(item._id)}>
+                    <button type="button" className="remove-item" onClick={() => onRemove(item?._id)}>
                       <TiDeleteOutline />
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> 
+              // )
             ))}
         </div>
 
-        {cartItems.length && (
+        {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="total">
               <h3>Total: </h3>

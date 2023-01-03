@@ -16,6 +16,8 @@ const ProductDetails = ({product, products}) => {
     setShowCart(true);
   }
 
+  console.log("product", product);
+
   return (
     <div>
       <div className='product-detail-container'>
@@ -74,12 +76,14 @@ const ProductDetails = ({product, products}) => {
       </div>
 
       <div className='maylike-products-wrapper'>
-        <h2>You may also like</h2>
+        <h2>Similar Products</h2>
         <div className='marquee'>
           <div className='maylike-products-container track'>
-            {products.map((item) => (
-              <Product key={item._id} product={item}/>
-            ))}
+            {products && products.map((item) => {
+              const productSlug = product.slug.current.split("-")[0];
+              return (item.slug.current.startsWith(productSlug) &&
+              JSON.stringify(item) !== JSON.stringify(product) &&  <Product key={item._id} product={item}/>)
+}       )}
           </div>
         </div>
       </div>
