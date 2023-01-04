@@ -42,8 +42,6 @@ const Cart = () => {
 
   document.addEventListener("click", closeCart);
 
-  console.log("inside cart", cartItems);
-
   return (
     <div className="cart-wrapper">
       <div className="cart-container">

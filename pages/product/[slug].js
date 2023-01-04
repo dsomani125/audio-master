@@ -16,8 +16,6 @@ const ProductDetails = ({product, products}) => {
     setShowCart(true);
   }
 
-  console.log("product", product);
-
   return (
     <div>
       <div className='product-detail-container'>
@@ -51,7 +49,7 @@ const ProductDetails = ({product, products}) => {
           </div>
           <h4>Details: </h4>
           <p>{details}</p>
-          <p className='price'><TbCurrencyRupee style={{height: '15px'}}/>{price}</p>
+          <p className='price'><TbCurrencyRupee size={22}/>{price}</p>
 
           <div className='quantity'>
             <h3>Quantity</h3>

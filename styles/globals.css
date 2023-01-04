@@ -436,7 +436,8 @@ span.text-red {
 }
 
 .selected-image {
-  background-color: #f02d34;
+  border: 1px solid gray;
+  padding: 2px;
 }
 .reviews {
   color: #f02d34;
