@@ -1,43 +1,34 @@
-import React from 'react';
-import Link from 'next/link';
-import { urlFor } from '../lib/client';
+import React from "react";
+import Link from "next/link";
+import { urlFor } from "../lib/client";
+import { TbCurrencyRupee } from "react-icons/tb";
 
-const FooterBanner = ({footerBanner: {
-  discount,
-  largeText1,
-  largeText2,
-  saleTime,
-  desc,
-  smallText,
-  midText,
-  product,
-  buttonText,
-  image
-}}) => {
+const FooterBanner = ({
+  footerBanner: { image, product, title, mrp, discount, price },
+}) => {
   return (
-    <div className='footer-banner-container'>
-      <div className='banner-desc'>
-        <div className='left'>
-          <p>{discount}</p>
-          <h3>{largeText1}</h3>
-          <h3>{largeText2}</h3>
-          <p>{saleTime}</p>
+    <div className="footer-banner-container">
+      <h3>{title}</h3>
+
+      <div>
+        <img src={urlFor(image)} height={370} />
+      </div>
+
+      <div className="right">
+        <div>
+          <span className="discount">{`-${discount}%`}</span>
+          <span className="price"><TbCurrencyRupee size={38}/>{price}</span>
         </div>
-        <div className='right'>
-          <p>{smallText}</p>
-          <h3>{midText}</h3>
-          <p>{desc}</p>
-          <Link href={`/product/${product}`}>
-            <button type='button'>{buttonText}</button>
-          </Link>
-        </div>
-        <img
-          src={urlFor(image)}
-          className="footer-banner-image"
-        />
+        <span className="mrp"><TbCurrencyRupee size={28}/>{mrp}</span>
+      
+        <Link href={`/product/${product}`}>
+          <button type="button" className="button">
+            Buy Now
+          </button>
+        </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FooterBanner
+export default FooterBanner;
