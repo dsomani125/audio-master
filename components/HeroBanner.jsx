@@ -1,29 +1,53 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { urlFor } from "../lib/client";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const HeroBanner = ({ heroBanner }) => {
+  const [index, setIndex] = useState(0);
+  const length = heroBanner.length;
+
+  const updateIndex = (type) => {
+    if (type === "next") {
+      setIndex((prev) => (prev + 1) % length);
+    } else {
+      setIndex((prev) => (prev - 1 + length) % length);
+    }
+  };
+
   return (
     <div className="hero-banner-container">
-        <p className="beats-solo">{heroBanner.smallText}</p>
-        <h3>{heroBanner.midText}</h3>
-        <h1>{heroBanner.largeText1}</h1>
-        <img
-          src={urlFor(heroBanner.image)}
-          alt="headphones"
-          // height={400}
-          className="hero-banner-image"
-        />
+      <div className="icon" onClick={() => updateIndex("prev")}>
+        <AiOutlineLeft size={40} />
+      </div>
 
-        <div>
-          <Link href={`/product/${heroBanner.product}`}>
-            <button type="button">{heroBanner.buttonText}</button>
+      <div className="details">
+        <div className="sale-text">
+          <h5 className="animate-character">{heroBanner[index].saleName}</h5>
+          <h3>{heroBanner[index].product}</h3>
+          <Link href={`/product/${heroBanner[index].slug}`}>
+            <button type="button">{heroBanner[index].buttonText}</button>
           </Link>
-          <div className="desc">
-            <h5>DESCRIPTION</h5>
-            <p>{heroBanner.desc}</p>
-          </div>
         </div>
+        <div>
+          <img
+            src={urlFor(heroBanner[index].image)}
+            alt="headphones"
+            height={370}
+            width={370}
+            className="hero-banner-image"
+          />
+        </div>
+      </div>
+
+      <div className="sale-desc">
+        <h5>DESCRIPTION</h5>
+        <p>{heroBanner[index].desc}</p>
+      </div>
+
+      <div className="icon" onClick={() => updateIndex("next")}>
+      <AiOutlineRight size={40}/>
+      </div>
     </div>
   );
 };

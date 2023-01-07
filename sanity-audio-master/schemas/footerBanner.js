@@ -1,6 +1,8 @@
+import { title } from "process";
+
 export default {
-    name: 'banner',
-    title: 'Banner',
+    name: 'footerBanner',
+    title: 'Footer Banner',
     type: 'document',
     fields: [
         {
@@ -17,23 +19,18 @@ export default {
             type: 'string',
         },
         {
-            name: 'buttonText',
-            title: 'ButtonText',
-            type: 'string',
-        },
-        {
             name: 'slug',
             title: 'Slug',
             type: 'string',
         },
         {
-            name: 'desc',
-            title: 'Desc',
+            name: 'title',
+            title: 'Title',
             type: 'string',
         },
         {
-            name: 'saleName',
-            title: 'Sale Name',
+            name: 'mrp',
+            title: 'Mrp',
             type: 'string',
         },
         {
@@ -42,8 +39,8 @@ export default {
             type: 'string',
         },
         {
-            name: 'saleTime',
-            title: 'SaleTime',
+            name: 'price',
+            title: 'Price',
             type: 'string',
         },
     ],
