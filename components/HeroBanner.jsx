@@ -23,10 +23,9 @@ const HeroBanner = ({ heroBanner }) => {
 
       <div className="details">
         <div className="sale-text">
-          <p className="beats-solo">{heroBanner[index].smallText}</p>
-          <h3>{heroBanner[index].midText}</h3>
-          <h1>{heroBanner[index].largeText1}</h1>
-          <Link href={`/product/${heroBanner[index].product}`}>
+          <h5 className="animate-character">{heroBanner[index].saleName}</h5>
+          <h3>{heroBanner[index].product}</h3>
+          <Link href={`/product/${heroBanner[index].slug}`}>
             <button type="button">{heroBanner[index].buttonText}</button>
           </Link>
         </div>
@@ -34,9 +33,9 @@ const HeroBanner = ({ heroBanner }) => {
           <img
             src={urlFor(heroBanner[index].image)}
             alt="headphones"
-            height={400}
-            width={400}
-            // className="hero-banner-image"
+            height={370}
+            width={370}
+            className="hero-banner-image"
           />
         </div>
       </div>

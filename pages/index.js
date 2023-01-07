@@ -5,7 +5,7 @@ import {Cart,Footer,FooterBanner, Layout, HeroBanner, Navbar, Product} from '../
 const Home = ({products, bannerData, footerBannerData}) => {
 
   const productCheck = [];
-
+  
   return (
     <div>
       <HeroBanner heroBanner={bannerData}/>

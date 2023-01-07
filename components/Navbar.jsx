@@ -12,7 +12,7 @@ const Navbar = () => {
       <p className='logo'>
         <Link href="/">
           <img 
-            src='./logo.png'
+            src='/logo.png'
             width={150}
           />
         </Link>

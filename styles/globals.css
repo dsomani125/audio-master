@@ -132,16 +132,18 @@ span.text-red {
 .hero-banner-container {
   display: flex;
   gap: 30px;
+  margin-top: 20px;
   padding: 40px 15px;
   background-color: #dcdcdc;
   border-radius: 15px;
-  height: 500px;
+  height: 400px;
   line-height: 0.9;
   width: 100%;
   justify-content: space-between;
+  flex: 1;
 }
 .hero-banner-container .icon {
-  margin-top: 190px;
+  margin-top: 140px;
   align-items: center;
   cursor: pointer;
 }
@@ -152,35 +154,52 @@ span.text-red {
   display: flex;
   gap: 15px;
   font-size: 20px;
+  flex: 0.8;
+  margin-left: -25px;
 }
 .hero-banner-container .beats-solo {
   font-size: 20px;
 }
 .hero-banner-container button {
-  border-radius: 15px;
-  padding: 10px 16px;
-  background-color: #f02d34;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: #ff4d4d;
   color: white;
   border: none;
-  margin-top: 40px;
-  font-size: 18px;
+  margin-bottom: -40px;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   z-index: 10000 !important;
 }
-
+.hero-banner-container button:hover {
+  background-color: #f02d34;
+}
 .hero-banner-container .sale-desc {
   margin-top: auto;
   width: 300px;
   line-height: 1.3;
+  font-size: 20px;
   display: flex;
   gap: 12px;
   flex-direction: column;
   color: #324d67;
+  flex: 0.3;
+  margin-right: -20px;
 }
-
+.hero-banner-container .sale-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.hero-banner-container .sale-name {
+  font-size: 2rem;
+  margin-top: 4px;
+  color: #f02d34;;
+}
 .hero-banner-container h3 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   margin-top: 4px;
 }
 .hero-banner-container h1 {
@@ -190,11 +209,38 @@ span.text-red {
   text-transform: uppercase;
 }
 .hero-banner-image {
-  position: absolute;
-  top: 0%;
-  right: 20%;
-  width: 450px;
-  height: 450px;
+  width: 370px;
+  height: 370px;
+  margin: -20px -10px 0px;
+}
+
+.animate-character
+{
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 35px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 .desc {
@@ -234,40 +280,32 @@ span.text-red {
 }
 .footer-banner-container {
   display: flex;
-  align-items: center;
-  padding: 100px 40px;
+  padding: 15px 40px;
   background-color: #dcdcdc;
-  border-radius: 15px;
+  border-radius: 12px;
   position: relative;
-  height: 350px;
+  height: 370px;
   line-height: 1;
   color: #324d67;
   width: 100%;
-  margin-top: 120px;
+  margin-top: 100px;
   justify-content: space-between;
-}
-.footer-banner-container h3 {
-  font-size: xxx-large;
 }
 
 .footer-banner-container .button {
-  border-radius: 15px;
-  padding: 10px 16px;
-  background-color: white;
-  color: red;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: white;
   border: none;
-  margin-top: 40px;
-  font-size: 18px;
+  margin-bottom: -40px;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
+  z-index: 10000 !important;
 }
-.banner-desc .left h3 {
-  font-weight: 900;
-  font-size: 80px;
-  margin-left: 25px;
-}
-.banner-desc .left p {
-  margin: 18px;
+.footer-banner-container button:hover {
+  background-color: #f02d34;
 }
 .footer-banner-image {
   height: 500px;
@@ -275,9 +313,23 @@ span.text-red {
 .footer-banner-container .right {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   line-height: 1.4;
-  font-size: 20px;
+  font-size: 100px;
   font-weight: 500;
+  padding-bottom: 10px;
+}
+.footer-banner-container .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  line-height: 1.4;
+  font-size: 35px;
+  font-weight: 500;
+}
+.footer-banner-container .product-name {
+  color: black;
+  font-weight: 700;
 }
 .footer-banner-container .price {
   font-weight: 800;
@@ -286,16 +338,16 @@ span.text-red {
 }
 .footer-banner-container .discount {
   font-weight: 400;
-  font-size: 35px;
+  font-size: 40px;
   color: #f02d34;
 }
 .footer-banner-container .mrp {
   font-weight: 400;
   font-size: 35px;
-  text-decoration: line-through ;
+  text-decoration: line-through;
 }
 .cart-wrapper {
-  width:100vw;
+  width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   right: 0;
