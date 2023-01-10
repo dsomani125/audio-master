@@ -18,8 +18,9 @@ const ProductDetails = ({ product, products }) => {
 
   return (
     <div>
+
       <div className="product-detail-container">
-        <div>
+        <div className="images-container">
           <img src={urlFor(image[index])} className="product-detail-image" />
           <div className="small-images-container">
             {image?.map((item, i) => (
@@ -98,6 +99,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

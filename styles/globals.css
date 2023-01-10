@@ -89,11 +89,12 @@ span.text-red {
   font-size: 12px;
   color: #eee;
   background-color: #f02d34;
-  width: 18px;
+  width: 20px;
   height: 18px;
   border-radius: 50%;
   text-align: center;
   font-weight: 600;
+  align-items: center;
 }
 .products-container {
   display: flex;
@@ -118,6 +119,8 @@ span.text-red {
   background-color: #ebebeb;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  width: 250px;
+  height: 250px;
 }
 
 .product-name {
@@ -140,6 +143,10 @@ span.text-red {
   line-height: 0.9;
   width: 100%;
   justify-content: space-between;
+  flex: 1;
+}
+.hero-banner-details {
+  display: flex;
   flex: 1;
 }
 .hero-banner-container .icon {
@@ -208,10 +215,13 @@ span.text-red {
   margin-left: -20px;
   text-transform: uppercase;
 }
+.hero-banner-container h5 {
+  font-size: 35px;
+}
 .hero-banner-image {
   width: 370px;
   height: 370px;
-  margin: -20px -10px 0px;
+  margin-top: -20px;
 }
 
 .animate-character
@@ -234,7 +244,6 @@ span.text-red {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-      font-size: 35px;
 }
 
 @keyframes textclip {
@@ -292,7 +301,7 @@ span.text-red {
   justify-content: space-between;
 }
 
-.footer-banner-container .button {
+.footer-banner-container button {
   border-radius: 8px;
   padding: 10px 20px;
   background-color: #ff4d4d;
@@ -308,7 +317,8 @@ span.text-red {
   background-color: #f02d34;
 }
 .footer-banner-image {
-  height: 500px;
+  height: 100%;
+  max-height: 370px;
 }
 .footer-banner-container .right {
   display: flex;
@@ -629,7 +639,6 @@ span.text-red {
   text-align: center;
   margin: 50px;
   color: #324d67;
-
   font-size: 28px;
 }
 .maylike-products-container {
@@ -698,72 +707,128 @@ span.text-red {
 
 @media screen and (max-width: 800px) {
   .hero-banner-container {
-    height: 560px;
-  }
-  .hero-banner-image {
-    width: 77%;
-    height: 62%;
-    top: -2%;
-    right: -6%;
-  }
-  .footer-banner-container {
-    height: 560px;
-    margin-top: 80px;
-  }
-  .footer-banner-image {
-    width: 77%;
-    left: 30%;
-    top: 6%;
-    /* height: 40%; */
-    height: 200px;
-  }
-  .banner-desc .left h3 {
-    font-weight: 900;
-    font-size: 50px;
-    margin-left: 5px;
-  }
-  .banner-desc .left p {
-    margin: 18px;
-  }
-  .banner-desc .right h3 {
-    font-size: 45px;
-  }
-  .banner-desc .right p {
-    font-size: 18px;
-  }
-  .banner-desc .right .company-desc {
-    font-size: 14px;
-  }
-  .banner-desc {
-    flex-wrap: wrap;
+    display: flex;
+    height: 100%;
+    padding: 0 2px 15px;
     gap: 20px;
   }
-  .hero-banner-container {
-    line-height: 1.3;
+  .hero-banner-details{
+    display: flex;
+    flex-direction: column;
   }
-  .hero-banner-container h1 {
-    font-size: 50px;
+  .hero-banner-details .details {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-banner-container .icon {
+    margin-top: 280px;
+  }
+  .hero-banner-container h5 {
+    font-size: 25px;
   }
   .hero-banner-container h3 {
-    font-size: 40px;
+    font-size: 28px;
+    margin-top: 20px;
+  }
+  .hero-banner-container .sale-desc {
+    width: 100%;
+    font-size: 20px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .hero-banner-details .description {
+    margin-left: -70px;
+  }
+  .hero-banner-container .sale-text {
+   align-items: center;
   }
   .hero-banner-container button {
-    margin-top: 90px;
-    z-index: 10000;
+    margin-bottom: 10px;
+    margin-top: 30px;
   }
-  .desc {
-    bottom: 60px;
+  .hero-banner-image {
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
   }
+
+  .products-heading {
+    margin-top: 60px;
+  }
+  .products-container {
+    gap: 30px;
+  }
+  .product-card {
+    font-size: 12px;
+  }
+  .product-image {
+    height: 100px;
+    width: 100px;
+  } 
+
+  .footer-banner-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 60px;
+  }
+  .footer-banner-container h3 {
+    font-size: 25px;
+  }
+  .footer-banner-container .left {
+    align-items: center;
+  }
+  .footer-banner-container .right {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: -60px; */
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    gap: 20px;
+  }
+  .footer-banner-image {
+    height: 100%;
+    max-height: 250px;
+  }
+  .footer-banner-container .mrp {
+    margin-top: -20px;
+  }
+  .footer-container {
+    margin-top: 20px;
+  }
+  
   .product-detail-container {
     flex-wrap: wrap;
   }
   .product-detail-container .product-detail-image {
-    width: 350px;
+    width: 100%;
     height: 350px;
   }
+  .product-detail-container .small-images-container {
+    flex-wrap: wrap;
+  }
+  .maylike-products-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+  }
+  .maylike-products-wrapper h2 {
+    margin: 20px;
+    font-size: 28px;
+  }
+  .marquee {
+   height: 150px;
+   margin-bottom: 30px;
+  }
+
+  /* .cart-wrapper {
+    right: none;
+  } */
   .cart-container {
-    width: 415px;
+    width: 100%;
     padding: 4px;
+    height: 100vh;
   }
   .cart-heading {
     margin-top: 35px;
@@ -817,21 +882,19 @@ span.text-red {
     animation: marquee 10s linear infinite;
     width: 550%;
   }
-  .success-wrapper,
-  .cancel-wrapper {
-    min-height: 69vh;
+  .success-wrapper, .cancel-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 2px;
   }
   .success,
   .cancel {
-    width: 370px;
+    width: 100%;
     margin-top: 100px;
-    padding: 20px;
-  }
-  .success {
-    height: 350px;
+    padding: 30px 20px 20px;
   }
   .success h2 {
-    font-size: 17px;
+    font-size: 20px;
   }
   .btn-container {
     width: 300px;

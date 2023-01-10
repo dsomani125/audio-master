@@ -12,7 +12,7 @@ const FooterBanner = ({
         <h3 className="animate-character">{title}</h3>
         <h3 className="product-name">{product}</h3>
       </div>
-      <img src={urlFor(image)} height={370} />
+      <img className="footer-banner-image" src={urlFor(image)} />
       <div className="right">
         <div>
           <span className="discount">{`-${discount}%`}</span>
@@ -26,7 +26,7 @@ const FooterBanner = ({
           {mrp}
         </span>
         <Link href={`/product/${slug}`}>
-          <button type="button" className="button">
+          <button type="button">
             BUY NOW
           </button>
         </Link>

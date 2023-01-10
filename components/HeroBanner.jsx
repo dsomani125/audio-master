@@ -18,35 +18,37 @@ const HeroBanner = ({ heroBanner }) => {
   return (
     <div className="hero-banner-container">
       <div className="icon" onClick={() => updateIndex("prev")}>
-        <AiOutlineLeft size={40} />
+        <AiOutlineLeft size={30} />
       </div>
 
-      <div className="details">
-        <div className="sale-text">
-          <h5 className="animate-character">{heroBanner[index].saleName}</h5>
-          <h3>{heroBanner[index].product}</h3>
-          <Link href={`/product/${heroBanner[index].slug}`}>
-            <button type="button">{heroBanner[index].buttonText}</button>
-          </Link>
+      <div className="hero-banner-details">
+        <div className="details">
+          <div className="sale-text">
+            <h5 className="animate-character">{heroBanner[index].saleName}</h5>
+            <h3>{heroBanner[index].product}</h3>
+            <Link href={`/product/${heroBanner[index].slug}`}>
+              <button type="button">{heroBanner[index].buttonText}</button>
+            </Link>
+          </div>
+          <div>
+            <img
+              src={urlFor(heroBanner[index].image)}
+              alt="headphones"
+              height={370}
+              width={370}
+              className="hero-banner-image"
+            />
+          </div>
         </div>
-        <div>
-          <img
-            src={urlFor(heroBanner[index].image)}
-            alt="headphones"
-            height={370}
-            width={370}
-            className="hero-banner-image"
-          />
+
+        <div className="sale-desc">
+          <h5 className="description">DESCRIPTION</h5>
+          <p>{heroBanner[index].desc}</p>
         </div>
       </div>
-
-      <div className="sale-desc">
-        <h5>DESCRIPTION</h5>
-        <p>{heroBanner[index].desc}</p>
-      </div>
-
+      
       <div className="icon" onClick={() => updateIndex("next")}>
-      <AiOutlineRight size={40}/>
+        <AiOutlineRight size={30} />
       </div>
     </div>
   );
