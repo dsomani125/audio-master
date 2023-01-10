@@ -15,8 +15,6 @@ const Product = ({product : {
         <div className='product-card'>
           <img 
             src={urlFor(image && image[0])}
-            width={250}
-            height={250}
             alt='headphone'
             className='product-image'
           />
