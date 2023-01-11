@@ -724,6 +724,7 @@ span.text-red {
   }
   .hero-banner-container .icon {
     margin-top: 280px;
+    height: 20px;
   }
   .hero-banner-container h5 {
     font-size: 25px;
@@ -734,12 +735,12 @@ span.text-red {
   }
   .hero-banner-container .sale-desc {
     width: 100%;
-    font-size: 20px;
+    font-size: 15px;
     align-items: center;
     margin-top: 20px;
   }
   .hero-banner-details .description {
-    margin-left: -70px;
+    /* margin-left: -70px; */
   }
   .hero-banner-container .sale-text {
    align-items: center;
@@ -825,12 +826,11 @@ span.text-red {
   }
 
   .cart-wrapper {
-    height: 100vh;
+    height: 100%;
   }
   .cart-container {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
     width: 100%;
     padding: 4px;
     height: 100%;
@@ -844,6 +844,7 @@ span.text-red {
   }
   .product-container {
     margin-top: 10px;
+    flex: 1;
   }
   .product {
     padding: 20px 5px;

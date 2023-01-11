@@ -15,30 +15,30 @@ const Cart = () => {
     totalPrice,
     cartItems,
     toggleCartItemQuantity,
-    onRemove
+    onRemove,
   } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
+    const response = await fetch("/api/stripe", {
+      method: "POST",
       headers: {
-        'Content-type': 'application/json',
+        "Content-type": "application/json",
       },
-      body: JSON.stringify(cartItems)
-    })
+      body: JSON.stringify(cartItems),
+    });
 
-    if(response.statusCode === 500)return;
+    if (response.statusCode === 500) return;
 
     const data = await response.json();
 
-    toast.loading('Redirecting...');
+    toast.loading("Redirecting...");
     stripe.redirectToCheckout({ sessionId: data.id });
-  }
+  };
 
   const closeCart = (event) => {
-    if(event.clientX < (window.innerWidth - 600)) setShowCart(false); 
-  }
+    if (event.clientX < window.innerWidth - 600) setShowCart(false);
+  };
 
   document.addEventListener("click", closeCart);
 
@@ -102,12 +102,16 @@ const Cart = () => {
                         <TiPlus />
                       </span>
                     </p>
-                    <button type="button" className="remove-item" onClick={() => onRemove(item?._id)}>
+                    <button
+                      type="button"
+                      className="remove-item"
+                      onClick={() => onRemove(item?._id)}
+                    >
                       <TiDeleteOutline />
                     </button>
                   </div>
                 </div>
-              </div> 
+              </div>
               // )
             ))}
         </div>
