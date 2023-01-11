@@ -15,30 +15,30 @@ const Cart = () => {
     totalPrice,
     cartItems,
     toggleCartItemQuantity,
-    onRemove
+    onRemove,
   } = useStateContext();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
+    const response = await fetch("/api/stripe", {
+      method: "POST",
       headers: {
-        'Content-type': 'application/json',
+        "Content-type": "application/json",
       },
-      body: JSON.stringify(cartItems)
-    })
+      body: JSON.stringify(cartItems),
+    });
 
-    if(response.statusCode === 500)return;
+    if (response.statusCode === 500) return;
 
     const data = await response.json();
 
-    toast.loading('Redirecting...');
+    toast.loading("Redirecting...");
     stripe.redirectToCheckout({ sessionId: data.id });
-  }
+  };
 
   const closeCart = (event) => {
-    if(event.clientX < (window.innerWidth - 600)) setShowCart(false); 
-  }
+    if (event.clientX < window.innerWidth - 600) setShowCart(false);
+  };
 
   document.addEventListener("click", closeCart);
 
@@ -71,63 +71,71 @@ const Cart = () => {
           </div>
         )}
 
-        <div className="product-container">
-          {cartItems.length >= 1 &&
-            cartItems.map((item) => (
-              // item && (
-              <div key={item._id} className="product">
-                <img
-                  src={urlFor(item?.image[0])}
-                  className="cart-product-image"
-                />
-                <div className="item-desc">
-                  <div className="flex top">
-                    <h5>{item.name}</h5>
-                    <h4>
-                      <TbCurrencyRupee size={16} />
-                      {item.price}
-                    </h4>
-                  </div>
-                  <div className="flex bottom">
-                    <p className="quantity-desc">
-                      <span
-                        onClick={() => toggleCartItemQuantity(item._id, "dec")}
+          <div className="product-container">
+            {cartItems.length >= 1 &&
+              cartItems.map((item) => (
+                // item && (
+                <div key={item._id} className="product">
+                  <img
+                    src={urlFor(item?.image[0])}
+                    className="cart-product-image"
+                  />
+                  <div className="item-desc">
+                    <div className="flex top">
+                      <h5>{item.name}</h5>
+                      <h4>
+                        <TbCurrencyRupee size={16} />
+                        {item.price}
+                      </h4>
+                    </div>
+                    <div className="flex bottom">
+                      <p className="quantity-desc">
+                        <span
+                          onClick={() =>
+                            toggleCartItemQuantity(item._id, "dec")
+                          }
+                        >
+                          <TiMinus />
+                        </span>
+                        <span className="num">{item.quantity}</span>
+                        <span
+                          onClick={() =>
+                            toggleCartItemQuantity(item._id, "inc")
+                          }
+                        >
+                          <TiPlus />
+                        </span>
+                      </p>
+                      <button
+                        type="button"
+                        className="remove-item"
+                        onClick={() => onRemove(item?._id)}
                       >
-                        <TiMinus />
-                      </span>
-                      <span className="num">{item.quantity}</span>
-                      <span
-                        onClick={() => toggleCartItemQuantity(item._id, "inc")}
-                      >
-                        <TiPlus />
-                      </span>
-                    </p>
-                    <button type="button" className="remove-item" onClick={() => onRemove(item?._id)}>
-                      <TiDeleteOutline />
-                    </button>
+                        <TiDeleteOutline />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div> 
-              // )
-            ))}
-        </div>
-
-        {cartItems.length >= 1 && (
-          <div className="cart-bottom">
-            <div className="total">
-              <h3>Total: </h3>
-              <h3>
-                <TbCurrencyRupee />
-                {totalPrice}
-              </h3>
-            </div>
-            <div className="btn-container">
-              <button type="button" className="btn" onClick={handleCheckout}>
-                PAY WITH STRIPE
-              </button>
-            </div>
+                // )
+              ))}
           </div>
-        )}
+
+          {cartItems.length >= 1 && (
+            <div className="cart-bottom">
+              <div className="total">
+                <h3>Total: </h3>
+                <h3>
+                  <TbCurrencyRupee />
+                  {totalPrice}
+                </h3>
+              </div>
+              <div className="btn-container">
+                <button type="button" className="btn" onClick={handleCheckout}>
+                  PAY WITH STRIPE
+                </button>
+              </div>
+            </div>
+          )}
       </div>
     </div>
   );
