@@ -826,7 +826,7 @@ span.text-red {
   }
 
   .cart-wrapper {
-    height: calc(100vh - 60px);
+    height: 100vh;
     overflow-y: hidden;
   }
   .cart-container {
