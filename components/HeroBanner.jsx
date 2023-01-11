@@ -30,7 +30,6 @@ const HeroBanner = ({ heroBanner }) => {
               <button type="button">{heroBanner[index].buttonText}</button>
             </Link>
           </div>
-          <div>
             <img
               src={urlFor(heroBanner[index].image)}
               alt="headphones"
@@ -38,7 +37,6 @@ const HeroBanner = ({ heroBanner }) => {
               width={370}
               className="hero-banner-image"
             />
-          </div>
         </div>
 
         <div className="sale-desc">

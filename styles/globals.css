@@ -72,7 +72,7 @@ span.text-red {
   font-size: 18px;
 }
 .cart-icon {
-  font-size: 25px;
+  font-size: 35px;
   color: gray;
   cursor: pointer;
   position: relative;
@@ -710,6 +710,7 @@ span.text-red {
     display: flex;
     height: 100%;
     padding: 0 2px 15px;
+    justify-content: space-evenly;
     gap: 20px;
   }
   .hero-banner-details{
@@ -719,6 +720,7 @@ span.text-red {
   .hero-banner-details .details {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   .hero-banner-container .icon {
     margin-top: 280px;
@@ -749,7 +751,7 @@ span.text-red {
   .hero-banner-image {
     width: 200px;
     height: 200px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
   }
 
   .products-heading {
@@ -789,7 +791,7 @@ span.text-red {
   }
   .footer-banner-image {
     height: 100%;
-    max-height: 250px;
+    max-height: 300px;
   }
   .footer-banner-container .mrp {
     margin-top: -20px;
@@ -822,16 +824,23 @@ span.text-red {
    margin-bottom: 30px;
   }
 
-  /* .cart-wrapper {
-    right: none;
-  } */
+  .cart-wrapper {
+    height: 100vh;
+  }
   .cart-container {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
     width: 100%;
     padding: 4px;
-    height: 100vh;
+    height: 100%;
   }
   .cart-heading {
     margin-top: 35px;
+  }
+  .cart-bottom {
+    position: absolute;
+    bottom: 0px;
   }
   .product-container {
     margin-top: 10px;
@@ -874,7 +883,6 @@ span.text-red {
   .cart-bottom {
     padding: 30px;
   }
-
   .total h3 {
     font-size: 20px;
   }
