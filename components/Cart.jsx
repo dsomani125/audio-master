@@ -71,71 +71,67 @@ const Cart = () => {
           </div>
         )}
 
-          <div className="product-container">
-            {cartItems.length >= 1 &&
-              cartItems.map((item) => (
-                // item && (
-                <div key={item._id} className="product">
-                  <img
-                    src={urlFor(item?.image[0])}
-                    className="cart-product-image"
-                  />
-                  <div className="item-desc">
-                    <div className="flex top">
-                      <h5>{item.name}</h5>
-                      <h4>
-                        <TbCurrencyRupee size={16} />
-                        {item.price}
-                      </h4>
-                    </div>
-                    <div className="flex bottom">
-                      <p className="quantity-desc">
-                        <span
-                          onClick={() =>
-                            toggleCartItemQuantity(item._id, "dec")
-                          }
-                        >
-                          <TiMinus />
-                        </span>
-                        <span className="num">{item.quantity}</span>
-                        <span
-                          onClick={() =>
-                            toggleCartItemQuantity(item._id, "inc")
-                          }
-                        >
-                          <TiPlus />
-                        </span>
-                      </p>
-                      <button
-                        type="button"
-                        className="remove-item"
-                        onClick={() => onRemove(item?._id)}
+        <div className="product-container">
+          {cartItems.length >= 1 &&
+            cartItems.map((item) => (
+              // item && (
+              <div key={item._id} className="product">
+                <img
+                  src={urlFor(item?.image[0])}
+                  className="cart-product-image"
+                />
+                <div className="item-desc">
+                  <div className="flex top">
+                    <h5>{item.name}</h5>
+                    <h4>
+                      <TbCurrencyRupee size={16} />
+                      {item.price}
+                    </h4>
+                  </div>
+                  <div className="flex bottom">
+                    <p className="quantity-desc">
+                      <span
+                        onClick={() => toggleCartItemQuantity(item._id, "dec")}
                       >
-                        <TiDeleteOutline />
-                      </button>
-                    </div>
+                        <TiMinus />
+                      </span>
+                      <span className="num">{item.quantity}</span>
+                      <span
+                        onClick={() => toggleCartItemQuantity(item._id, "inc")}
+                      >
+                        <TiPlus />
+                      </span>
+                    </p>
+                    <button
+                      type="button"
+                      className="remove-item"
+                      onClick={() => onRemove(item?._id)}
+                    >
+                      <TiDeleteOutline />
+                    </button>
                   </div>
                 </div>
-                // )
-              ))}
-          </div>
+              </div>
+              // )
+            ))}
+        </div>
 
-          {cartItems.length >= 1 && (
-            <div className="cart-bottom">
-              <div className="total">
-                <h3>Total: </h3>
-                <h3>
-                  <TbCurrencyRupee />
-                  {totalPrice}
-                </h3>
-              </div>
-              <div className="btn-container">
-                <button type="button" className="btn" onClick={handleCheckout}>
-                  PAY WITH STRIPE
-                </button>
-              </div>
+        {cartItems.length >= 1 && (
+          <div className="cart-bottom">
+            <div className="total">
+              <h3>Total: </h3>
+              <h3>
+                <TbCurrencyRupee />
+                {totalPrice}
+              </h3>
             </div>
-          )}
+            <div className="btn-container">
+              <button type="button" className="btn" onClick={handleCheckout}>
+                PAY WITH STRIPE
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
